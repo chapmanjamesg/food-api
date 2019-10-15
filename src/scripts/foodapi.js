@@ -1,5 +1,5 @@
 console.log('Horray this is working!')
-
+//this needs to be outside of the parse so that it executes properly
 const foodFactory = (food) => {
     return `
     <div class="food">
@@ -20,13 +20,13 @@ fetch("http://localhost:8088/food")
         console.table(parsedFoods)
 
         parsedFoods.forEach(food => {
-             console.log('food', food)
+            //console.log('food', food)
             // console.log(food.name)
             const addFoodToDom = document.querySelector('.foodList');
+            //you don't need a for loop here because it is an object not an array at this point.
+            addFoodToDom.innerHTML += foodFactory(food)
 
-                addFoodToDom.innerHTML += foodFactory(food)
-            
-            
+
         });
     })
 
